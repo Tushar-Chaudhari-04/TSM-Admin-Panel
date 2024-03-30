@@ -1,0 +1,66 @@
+{
+  "inventoryData": [
+    {
+      "name": "Mobile",
+      "value": 50
+    },
+    {
+      "name": "Laptop",
+      "value": 20
+    },
+    {
+      "name": "Smart Watches",
+      "value": 80
+    },
+    {
+      "name": "Smart TV",
+      "value": 10
+    },
+    {
+      "name": "Books",
+      "value": 100
+    },
+    {
+      "name": "Earphones",
+      "value": 40
+    }
+  ],
+
+  "transactionData": [
+    {
+      "id": 1,
+      "quantity": 100,
+      "discount": 40,
+      "amount": 5000,
+      "status": "in-process"
+    },
+    {
+      "id": 2,
+      "quantity": 400,
+      "discount": 50,
+      "amount": 10000,
+      "status": "delivered"
+    },
+    {
+      "id": 3,
+      "quantity": 600,
+      "discount": 20,
+      "amount": 20000,
+      "status": "way to delivery"
+    },
+    {
+      "id": 4,
+      "quantity": 50,
+      "discount": 10,
+      "amount": 1000,
+      "status": "shipped"
+    },
+    {
+      "id": 5,
+      "quantity": 20,
+      "discount": 5,
+      "amount": 1500,
+      "status": "cancelled"
+    }
+  ]
+}

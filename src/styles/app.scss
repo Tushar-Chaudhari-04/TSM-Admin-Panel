@@ -1,0 +1,273 @@
+/*
+ ?Using mixins ... (wrap common css in mixins like functions for reusability)
+
+ ?use import declarations to connect mixins
+*/
+
+@import "mixin.scss";
+@import "dashboard.scss";
+@import "product.scss";
+@import "chart.scss";
+@import "dashboardapp.scss";
+@import "toss.scss";
+@import "_meidaquries.scss";
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  --bg-color: rgb(247, 247, 247);
+  --sidebar-bg-select-color: rgba(0, 155, 255, 0.1);
+  // --supporting-bg-color: #fff;
+  --sidebar-select-color: rgba(0, 155, 255);
+  --supporting-black-color: #000;
+  --supporting-white-color: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+li {
+  list-style: none;
+}
+.red {
+  color: rgb(255, 0, 0);
+}
+
+.purple {
+  color: rgb(203, 18, 236);
+}
+
+.green {
+  color: rgb(0, 255, 0);
+}
+
+.blue {
+  color: rgb(0, 0, 255);
+}
+svg {
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+
+.btn {
+  @include buttonStyle(10rem, 1.5rem, 10px, hwb(331 1% 6%), #fff);
+  padding: 1rem 2rem;
+  margin: 2rem;
+  font-weight: 700;
+}
+
+.admin-container {
+  @include grid(1fr 4fr, 2rem);
+  height: 100vh;
+  background-color: var(--bg-color);
+
+  > aside {
+    width: 100%;
+    background-color: #fff;
+    padding: 1rem;
+    z-index: 10;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+      rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+
+    > div {
+      margin: 2rem 1rem;
+
+      > h5 {
+        @include heading(2px);
+        opacity: 0.8;
+        margin: 1rem 0;
+      }
+
+      > ul {
+        @include flex(column, unset, unset, 0.5rem);
+
+        > li {
+          padding: 0.5rem 1rem;
+          border-radius: 15px;
+          -webkit-border-radius: 15px;
+          -moz-border-radius: 15px;
+          -ms-border-radius: 15px;
+          -o-border-radius: 15px;
+          a {
+            color: rgba($color: #000000, $alpha: 0.825);
+            @include flex(row, unset);
+          }
+        }
+      }
+    }
+  }
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  th,
+  td {
+    padding: 0.5rem;
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  th {
+    font-weight: bold;
+    color: #0000009e;
+    font-size: 1.1rem;
+    font-weight: 400;
+    padding: 2rem 1rem;
+  }
+
+  tbody {
+    tr {
+      box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.093);
+    }
+
+    td {
+      padding: 0.5rem;
+      img {
+        @include square(4rem);
+        object-fit: contain;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+      }
+
+      a {
+        text-decoration: none;
+        // background-color: rgba(44, 104, 255, 0.455);
+        color: hsl(233, 90%, 49%);
+        padding: 0.25rem 0.5rem;
+        border-radius: 10px;
+      }
+
+      button {
+        width: 2rem;
+        height: 2rem;
+        font-size: 1.1rem;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        cursor: pointer;
+        color: rgb(255, 0, 0);
+        &:hover {
+          opacity: 0.6;
+        }
+      }
+    }
+  }
+}
+
+.table-pagination {
+  @include flex;
+  padding: 0rem;
+
+  > button {
+    padding: 0.5rem 1rem;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    background-color: rgba(0, 155, 255);
+    color: var(--supporting-white-color);
+
+    &:disabled {
+      background-color: rgba(0, 155, 255, 0.1);
+      cursor: not-allowed;
+    }
+  }
+}
+
+#hamburger {
+  display: grid;
+  place-items: center;
+  @include square(3rem);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: rgba(44, 104, 255);
+  position: fixed;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  z-index: 9;
+}
+
+#close-sidebar {
+  width: 80%;
+  margin: 1rem auto;
+  display: block;
+  padding: 0.75rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: rgb(168, 2, 2);
+  color: #fff;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.loader {
+  width: 100%;
+  height: 100vh;
+ @include flex;
+    > div {
+      @include square(10rem);
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+      border-top: 1rem solid rgb(43, 43, 43);
+      border-left: 1rem solid rgb(43, 43, 43);
+      border-right: 1rem solid #fff;
+      border-right: 1rem solid #fff;
+      animation: loading-animation 0.3s infinite linear;
+      -webkit-animation: loading-animation 0.3s infinite linear;
+    }
+  }
+
+@keyframes loading-animation {
+  to {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+  }
+}
+
+.admin-btn{
+  @include flex;
+  @include buttonStyle(10rem, 1rem, 10px, hwb(331 1% 6%), #fff);
+  margin: 1rem auto;
+  font-weight: 700;
+}

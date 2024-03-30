@@ -1,0 +1,203 @@
+.dashboard {
+  overflow-y: auto;
+
+  .bar {
+    height: 4rem;
+    @include flex(row, unset);
+    padding: 0 1rem;
+    border-bottom: 1px solid rgba($color: #000, $alpha: 0.15);
+
+    > input {
+      margin-right: auto;
+      @include inputStyles(100%, 1rem 0);
+    }
+  }
+
+  .widget-container {
+    @include flex(row, space-between, strech, 2rem);
+    padding: 2rem 2rem 2rem 0;
+
+    .widget {
+      width: 16rem;
+
+      background-color: var(--supporting-white-color);
+      box-shadow: 0 0 10px rgba($color: #000, $alpha: 0.132);
+      padding: 2rem;
+      @include flex(row, space-between, strech, 0);
+      border-radius: 15px;
+      -webkit-border-radius: 15px;
+      -moz-border-radius: 15px;
+      -ms-border-radius: 15px;
+      -o-border-radius: 15px;
+      //1:23:26 youtube video 6 pack programmer
+      .widget-info {
+        > p {
+          opacity: 0.7;
+          font-size: 0.8rem;
+        }
+
+        > h4 {
+          font-size: 1.5rem;
+        }
+
+        > span {
+          @include flex(row, unset, center, 0.2rem);
+        }
+      }
+
+      .widget-circle {
+        flex: none;
+        position: relative;
+        @include square(5rem);
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background-color: aquamarine;
+        z-index: 3;
+        &::before {
+          content: "";
+          position: absolute;
+          @include square(4rem);
+          background-color: var(--supporting-white-color);
+          border-radius: 100%;
+          -webkit-border-radius: 100%;
+          -moz-border-radius: 100%;
+          -ms-border-radius: 100%;
+          -o-border-radius: 100%;
+        }
+
+        > span {
+          position: relative;
+        }
+      }
+    }
+  }
+
+  .graph-container {
+    @include flex(row, unset, unset, 2rem);
+    padding: 0 2rem 2rem 0;
+
+    > div {
+      background-color: var(--supporting-white-color);
+      border-radius: 10px;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      -ms-border-radius: 10px;
+      -o-border-radius: 10px;
+    }
+    .graph-section {
+      width: 100%;
+      padding: 1rem 3rem;
+
+      > h2 {
+        @include heading;
+        margin: 1rem 0 2rem 0.25rem;
+        text-align: center;
+      }
+    }
+    .inventory-section {
+      width: 100%;
+      max-width: 16rem;
+      @include flex(column, center, unset, 0);
+      padding-bottom: 2rem;
+
+      > h2 {
+        @include heading;
+        margin: 1.5rem 0 2rem 0rem;
+        text-align: center;
+      }
+
+      > div {
+        overflow-y: auto;
+        padding-left: 0.5rem;
+      }
+
+      .inventory-area {
+        width: 100%;
+        @include flex(row, space-between);
+        padding: 1rem;
+        overflow-x: hidden;
+        .stock-indicator-bcg {
+          margin-left: auto;
+          width: 6rem;
+          background-color: rgb(217, 217, 217);
+          border-radius: 20px;
+          -webkit-border-radius: 20px;
+          -moz-border-radius: 20px;
+          -ms-border-radius: 20px;
+          -o-border-radius: 20px;
+          height: 0.5rem;
+          flex: none;
+
+          .stock-indicator {
+            height: 100%;
+            border-radius: 20px;
+            -webkit-border-radius: 20px;
+            -moz-border-radius: 20px;
+            -ms-border-radius: 20px;
+            -o-border-radius: 20px;
+          }
+        }
+
+        > span {
+          font-size: 0.8rem;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  .gender-transaction-container {
+    @include flex(row, unset, 2rem);
+    padding: 0 2rem 2rem 0;
+    h2 {
+      @include heading;
+      text-align: center;
+      margin: 1.5rem 0 2rem 0;
+    }
+
+    > div {
+      background-color: var(--supporting-white-color);
+      box-shadow: 0 10px 10px rgba(0, 0, 0, 0.132);
+      border-radius: 15px;
+      -webkit-border-radius: 15px;
+      -moz-border-radius: 15px;
+      -ms-border-radius: 15px;
+      -o-border-radius: 15px;
+    }
+
+    .gender-section {
+      width: 100%;
+      // height: 70%;
+      max-width: 20rem;
+
+      padding: 1rem;
+      position: relative;
+
+      .mf-icon {
+        @include posCenter;
+        bottom:22rem;
+        color:#000000;
+      }
+    }
+
+    .transaction-section {
+      width: 100%;
+
+      .transactionBox{
+        width: 100%;
+        text-align: left;
+        padding:1rem;
+        // @include flex;
+      }
+      // .checkboxSelection{
+      //   width: 100%;
+      //   padding: 1rem;
+      // }
+    }
+  }
+}

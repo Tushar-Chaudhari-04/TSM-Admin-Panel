@@ -1,0 +1,80 @@
+@mixin heading($spacing: 3px, $weight: 300, $case: uppercase) {
+  letter-spacing: $spacing;
+  font-weight: $weight;
+  text-transform: $case;
+}
+
+@mixin flex(
+  $dir: row,
+  $justifyContent: center,
+  $alignItems: center,
+  $gap: 1rem
+) {
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $justifyContent;
+  align-items: $alignItems;
+  gap: $gap;
+}
+
+@mixin grid($col: 1fr, $gap: 1rem, $row: unset) {
+  display: grid;
+  grid-template-columns: $col;
+  grid-template-rows: $row;
+  gap: $gap;
+}
+
+@mixin inputStyles(
+  $width: 100%,
+  $padding: 1rem,
+  $bgColor: inherit,
+  $border: none
+) {
+  width: $width;
+  padding: $padding;
+  background-color: $bgColor;
+  border: $border;
+  outline: none;
+}
+
+@mixin posCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+
+@mixin posCenterGrid {
+  display: grid;
+  place-items: center;
+}
+
+@mixin square($size) {
+  width: $size;
+  height: $size;
+}
+
+@mixin buttonStyle($w, $pad, $br, $bcg, $color) {
+  width: $w;
+  padding: $pad;
+  font-size:1.2rem;
+  font-weight:600;
+  border: none;
+  outline: none;
+  border-radius: $br;
+  -webkit-border-radius: $br;
+  -moz-border-radius: $br;
+  -ms-border-radius: $br;
+  -o-border-radius: $br;
+  background-color:$bcg;
+  color: $color;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
