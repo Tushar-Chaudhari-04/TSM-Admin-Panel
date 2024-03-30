@@ -1,23 +1,21 @@
-import { Link, useLocation, Location } from "react-router-dom";
-import {
-  RiDashboardFill,
-  RiShoppingBagFill,
-  RiCoupon2Fill,
-} from "react-icons/ri";
-import { AiFillFileText } from "react-icons/ai";
-import { IoIosPeople } from "react-icons/io";
+import { useEffect, useState } from "react";
 import { IconType } from "react-icons";
+import { AiFillFileText } from "react-icons/ai";
 import {
   FaChartBar,
   FaChartLine,
   FaChartPie,
-  FaStopwatch,
   FaGamepad,
+  FaStopwatch,
 } from "react-icons/fa";
-import { useEffect, useState } from "react";
-import { HiMenuAlt1 } from "react-icons/hi";
-import Hamburger from 'hamburger-react'
 import { GiHamburgerMenu } from "react-icons/gi";
+import { IoIosPeople } from "react-icons/io";
+import {
+  RiCoupon2Fill,
+  RiDashboardFill,
+  RiShoppingBagFill,
+} from "react-icons/ri";
+import { Link, Location, useLocation } from "react-router-dom";
 
 const AdminSideBar = () => {
   const location = useLocation();
@@ -26,8 +24,6 @@ const AdminSideBar = () => {
   const [phoneActive, setPhoneActive] = useState<boolean>(
     window.innerWidth < 1100 ? true : false
   );
-
-  const [isOpen, setOpen] = useState(false)
 
   const resizeHandler = () => {
     setPhoneActive(window.innerWidth < 1100);

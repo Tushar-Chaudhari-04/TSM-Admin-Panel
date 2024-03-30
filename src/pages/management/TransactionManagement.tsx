@@ -1,6 +1,6 @@
 import { useState } from "react";
 import AdminSideBar from "../../components/AdminSideBar";
-import { OrderItemType, OrderType } from "../../Types";
+import { OrderItemType, OrderType } from "../../types";
 import { Link } from "react-router-dom";
 
 const img1 =
@@ -44,12 +44,11 @@ const TransactionManagement = () => {
     shippingCharges,
     tax,
     discount,
-    total,
     status,
   } = order;
 
   const updateHandler = () => {
-    setOrder((prev) => ({
+    setOrder((prev:any) => ({
       ...prev,
       status: prev.status == "Processing" ? "Shipped" : "Delivered",
     }));
@@ -60,7 +59,7 @@ const TransactionManagement = () => {
       <main className="product-management-container">
         <section style={{ padding: "1.2rem" }}>
           <h2>Cart Items</h2>
-          {order.orderItems.map((item) => (
+          {order.orderItems.map((item:any) => (
             <ProductCard
               name={item.name}
               quantity={item.quantity}
